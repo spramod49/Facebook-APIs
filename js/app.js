@@ -2,6 +2,7 @@
 $("#feed").hide();
 $("#profile").hide();
 $("img[src='loader.gif']").hide();
+
 $("#profileButton").click(()=>{
 	$("#feed").hide();
 	$("#profile").hide();
@@ -9,7 +10,7 @@ $("#profileButton").click(()=>{
 
 	var token = document.getElementById("token").value;
     $.ajax({
-    	url: "https://graph.facebook.com/10205173372031339?fields=name,email,cover,favorite_athletes,favorite_teams,first_name,education,hometown,work,posts,friends&access_token="+token,
+    	url: "https://graph.facebook.com/10205173372031339?fields=name,picture,email,cover,favorite_athletes,favorite_teams,first_name,education,hometown,work,posts&access_token="+token,
         type: 'GET',
         success: function(res)
         {
@@ -18,6 +19,7 @@ $("#profileButton").click(()=>{
 			console.log(res.email);
 			$("img[src='loader.gif']").hide();
 			$("#profile").show(500);
+			loadProfilepic(res.picture.data.url);
 			loadCover(res.cover.source);
 			loadName(res.name, res.email, res.hometown);
 			favoriteAthletes(res.favorite_athletes);
@@ -33,6 +35,7 @@ $("#profileButton").click(()=>{
         }
     });
 });
+
 $("#feedsButton").click(()=>{
 	$("#profile").hide();
 	$("img[src='loader.gif']").show();
@@ -42,8 +45,8 @@ $("#feedsButton").click(()=>{
         type: 'GET',
         success: function(res)
         {
-            $("#feed").show(500);
 			$("img[src='loader.gif']").hide();
+			$("#feed").show(500);
 			console.log(res);
         },
         error: function(res){
@@ -53,17 +56,24 @@ $("#feedsButton").click(()=>{
         }
     });
 });
+function loadProfilepic(picture) {
 
+}
 function loadCover(imageLink){
 	$("img[alt*='cover']").attr("src",imageLink);
+	$("header>div").attr("style","background-image: url('"+imageLink+"')");
+	// background-image: url('images/img.jpg')
 }
 function loadName(name,email,hometown){
-	$("div[name='name'] ul").append("<li>Name: "+name+" </li><li>Email: "+email+"</li><li>Hometown: "+hometown.name+"</li>");
+	$("div[name='name'] ul").append("<li><strong>Name:</strong> "+name+" </li><li><strong>Email: </strong>"+email+"</li><li><strong>Hometown: </strong>"+hometown.name+"</li>");
 }
 
 function favoriteAthletes(athletes){
 	athletes.forEach((athlete,i)=>{
-		$("div[name*='athletes']>div>div>ul" ).append( "<li>"+athlete.name+"</li>");
+		if (i<16) {
+				$("div[name*='athletes']>div>div>ul" ).append( "<li>"+athlete.name+"</li>");
+		}
+
 	});
 }
 function favoriteTeams(teams){
@@ -73,9 +83,9 @@ function favoriteTeams(teams){
 }
 
 function workCard(work){
-	$("div[name*=work]>div>div>ul").append(`<li>Employer: </li>`+work.employer.name+
-										`<li>Location: </li>`+work.location.name+
-										`<li>Position: </li>`+work.position.name);//"<p>I work for "+work.employer.name+" at "+work.location.name+" as a "+work.position.name+"</p>")
+	$("div[name*=work]>div>div>ul").append(`<li><strong>Employer: </strong>`+work.employer.name+`</li>
+											<li><strong>Location: </strong>`+work.location.name+`</li>
+											<li><strong>Position: </strong>`+work.position.name+`</li>`);//"<p>I work for "+work.employer.name+" at "+work.location.name+" as a "+work.position.name+"</p>")
 }
 
 function educationCard(education) {
@@ -84,7 +94,7 @@ function educationCard(education) {
 		$("div[name*=education]>div>div>ul").append("<li>"+e.school.name+"</li>");
 		if (e.concentration) {
 			e.concentration.forEach((mainSubjects)=>{
-			$("div[name*=education]>div>div[1]").html("<p> Main subject(s): "+mainSubjects.name+"</p>");
+			// $("div[name*=education]>div>div>ul").append("<li> Main subject(s): "+mainSubjects.name+"</p>");
 			})
 		}
 	})
