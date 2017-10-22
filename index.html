@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html style="width:100%;">
+
+<head>
+	<title>Facebook APIs</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h3 style="text-align:center;">Facebook APIs</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<input type="text" name="token" id="token" class="form-control" placeholder="FB access token" style="margin-bottom:10px;" required>
+			</div>
+			<div class="col-lg-3">
+				<button class="btn btn-info" style="width:100%;margin:0 auto 10px auto;" id="profileButton">Get profile info</button>
+			</div>
+			<div class="col-lg-3">
+				<button class="btn btn-success" style="width:100%;margin:0 auto 10px auto;" id="feedsButton">Get latest feed</button>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-12 col-lg-12" style="text-align:center;">
+			<img src="loader.gif" alt="Loading...." style="width:20%;">
+		</div>
+	</div>
+	<div class="container" id="profile">
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="row">
+					<div class="col-xs-12 col-lg-12" name="name">
+						<div class="panel panel-info">
+							<div class="panel-heading">Basic info</div>
+							<div class="panel-body">
+								<ul></ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-lg-12" name="work">
+						<div class="panel panel-success">
+							<div class="panel-heading">Work info</div>
+							<div class="panel-body">
+								<ul></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<img src="" alt="cover photo" class="img-thumbnail">
+			</div>
+			<div class="col-xs-12 col-md-12 col-lg-3" name="favorite_athletes">
+				<div class="panel panel-info">
+					<div class="panel-heading">Some of my favorite athletes...</div>
+					<div class="panel-body">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-6" name="favorite_teams">
+				<div class="panel panel-info">
+					<div class="panel-heading">My favorite teams...</div>
+					<div class="panel-body">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+			<div class="card col-xs-12 col-sm-12 col-lg-6" name="education">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Schools and colleges i went to..</div>
+					<div class="panel-body">
+						<ul></ul>
+					</div>
+				</div>			
+			</div>
+		</div>
+
+	</div>
+	<div class="container" id="feed">
+		<div class="row">
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<div class="card">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+					occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<div class="card">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<div class="card">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<div class="card">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+</body>
+
+</html>
+<!-- https://graph.facebook.com/v2.5/10205173372031339/feed -->
