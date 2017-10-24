@@ -8,6 +8,12 @@
 .panel{
     max-height: 345px;
     overflow: hidden;
+    border-radius: 8px;
+    min-height: 120px;
+}
+.feed{
+    padding: 10px;
+    font-weight: 800;
 }
 body{
     line-height: 1.2;
@@ -24,7 +30,6 @@ ul{
         margin-bottom: 15px;
     }
 }
-
 /*#profile>.row>.col-lg-3{
     padding-left: 15px;
     padding-right: 15px;
