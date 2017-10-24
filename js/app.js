@@ -1,7 +1,7 @@
 //Basic user information api call
-$("#feed").hide();                    //This hides the feed section when page loads.
-$("#profile").hide();                 //This hides the profile section
-$("img[src='loader.gif']").hide();    //Hides the loader
+$("#feed").hide(); //This hides the feed section when page loads.
+$("#profile").hide(); //This hides the profile section
+$("img[src='loader.gif']").hide(); //Hides the loader
 
 //This is event handler for getting the profile information once the "Get profile info" button is clicked.
 $("#profileButton").click(() => {
@@ -29,7 +29,7 @@ $("#profileButton").click(() => {
             error: function(res) {
                 var message = JSON.parse(res.responseText);
                 //Using the alertify.js jquery plugin to display the error message made on a call
-                alertify.alert("Oops!",message.error.message);
+                alertify.alert("Oops!", message.error.message);
                 $("img[src='loader.gif']").hide();
             }
         });
@@ -85,8 +85,7 @@ function educationCard(education) {
         //     e.concentration.forEach((mainSubjects) => {
         //         // $("div[name*=education]>div>div>ul").append("<li> Main subject(s): "+mainSubjects.name+"</p>");
         //     })
-        }
-    );
+    });
 }
 
 
